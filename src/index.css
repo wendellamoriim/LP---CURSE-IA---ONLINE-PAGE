@@ -1,0 +1,380 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/sf-pro-display/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #43aff7;
+  --color-accent: #20d3e8;
+  --color-dark: #0a101f;
+  --color-darker: #020617;
+  --color-surface: #0d1526;
+  --font-sans: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===== GLOBAL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020617;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== TYPOGRAPHY UTILITIES ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #43aff7, #20d3e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-cyan {
+  text-shadow: 0 0 30px rgba(32, 211, 232, 0.4);
+}
+
+/* ===== GLASS STYLES ===== */
+.glass {
+  background: rgba(13, 21, 38, 0.5);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card {
+  background: rgba(13, 21, 38, 0.6);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.liquid-glass {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* ===== BACKGROUND UTILITIES ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(67, 175, 247, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 175, 247, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(67, 175, 247, 0.12) 0%, transparent 70%);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(67, 175, 247, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(67, 175, 247, 0.5);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ===== GLOW BORDER ===== */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #43aff7 0%, #20d3e8 50%, transparent 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0.5;
+}
+
+/* ===== GLITCH EFFECT ===== */
+@keyframes glitch-clip-1 {
+
+  0%,
+  90%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  91% {
+    clip-path: inset(8% 0 55% 0);
+    transform: translate(-3px, 1px);
+  }
+
+  93% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(3px, -1px);
+  }
+
+  95% {
+    clip-path: inset(70% 0 5% 0);
+    transform: translate(-2px, 2px);
+  }
+
+  97% {
+    clip-path: inset(20% 0 65% 0);
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes glitch-clip-2 {
+
+  0%,
+  90%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  92% {
+    clip-path: inset(55% 0 10% 0);
+    transform: translate(3px, -2px);
+  }
+
+  94% {
+    clip-path: inset(25% 0 45% 0);
+    transform: translate(-3px, 1px);
+  }
+
+  96% {
+    clip-path: inset(75% 0 2% 0);
+    transform: translate(2px, -1px);
+  }
+
+  98% {
+    clip-path: inset(5% 0 80% 0);
+    transform: translate(-2px, 2px);
+  }
+}
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  font: inherit;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glitch-text::before {
+  color: #20d3e8;
+  -webkit-text-fill-color: #20d3e8;
+  background: none;
+  animation: glitch-clip-1 4s infinite;
+  opacity: 0.85;
+  text-shadow: -2px 0 #20d3e8;
+  mix-blend-mode: screen;
+}
+
+/* ===== SECTION FADE DIVIDERS ===== */
+.section-padding {
+  padding-top: 5rem;
+  /* py-20 */
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-top: 8rem;
+    /* py-32 */
+    padding-bottom: 8rem;
+  }
+}
+
+/* Aplique .section-fade em qualquer <section> para dissolver as bordas */
+.section-fade::before,
+.section-fade::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 160px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Fade no TOPO da seção */
+.section-fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, #020617 0%, transparent 100%);
+}
+
+/* Fade no FUNDO da seção */
+.section-fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, #020617 0%, transparent 100%);
+}
+
+.glitch-text::after {
+  color: #43aff7;
+  -webkit-text-fill-color: #43aff7;
+  background: none;
+  animation: glitch-clip-2 4s infinite;
+  opacity: 0.85;
+  text-shadow: 2px 0 #43aff7;
+  mix-blend-mode: screen;
+}

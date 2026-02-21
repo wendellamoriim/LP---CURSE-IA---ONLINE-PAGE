@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.gemini
+.agent
+.venv
+venv
+.env
+.env.local
+.env.*.local
