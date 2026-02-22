@@ -164,7 +164,7 @@ export function Hero() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Neural Core</p>
-                <p className="text-xs font-bold text-white mb-1.5">GPT-4o Omni</p>
+                <p className="text-xs font-bold text-white mb-1.5"AI JARVIS 2.0</p>
                 <div className="flex items-end gap-0.5 h-4">
                   {[...Array(10)].map((_, i) => (
                     <motion.div
