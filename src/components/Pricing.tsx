@@ -122,17 +122,17 @@ export function Pricing() {
                 Garantir o Curso
               </motion.a>
 
-              <div className="flex items-center justify-center gap-4 pt-8 border-t border-white/5 opacity-50">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-8 border-t border-white/5 opacity-50">
                 <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <Shield className="w-3 h-3" />
                   Garantia 7 dias
                 </div>
-                <div className="w-px h-3 bg-white/10" />
+                <div className="hidden sm:block w-px h-3 bg-white/10" />
                 <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <Clock className="w-3 h-3" />
                   Acesso Vitalício
                 </div>
-                <div className="w-px h-3 bg-white/10" />
+                <div className="hidden sm:block w-px h-3 bg-white/10" />
                 <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <Zap className="w-3 h-3" />
                   Imediato
