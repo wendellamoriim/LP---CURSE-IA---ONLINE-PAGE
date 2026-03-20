@@ -1,4 +1,3 @@
-import { Heart } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -15,8 +14,8 @@ export function Footer() {
             <a href="#" className="hover:text-white transition-colors">Contato</a>
           </div>
 
-          <p className="text-sm text-slate-500 flex items-center gap-1">
-            Feito com <Heart className="h-3.5 w-3.5 text-red-400 fill-current" /> para devs apaixonados por IA
+          <p className="text-sm text-slate-500">
+            © {new Date().getFullYear()} JARVIS AI — Todos os direitos reservados.
           </p>
         </div>
       </div>

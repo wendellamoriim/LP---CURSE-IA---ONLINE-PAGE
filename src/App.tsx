@@ -5,6 +5,7 @@ import { Demo } from './components/Demo';
 import { Modules } from './components/Modules';
 import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
+import { Affiliates } from './components/Affiliates';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 
@@ -18,6 +19,7 @@ export function App() {
       <Modules />
       <Testimonials />
       <Pricing />
+      <Affiliates />
       <FAQ />
       <Footer />
     </div>

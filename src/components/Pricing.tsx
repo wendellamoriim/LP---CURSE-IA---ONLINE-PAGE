@@ -94,8 +94,10 @@ export function Pricing() {
                 <span className="text-6xl sm:text-8xl font-black text-white leading-none tracking-tighter">119</span>
                 <span className="text-2xl sm:text-3xl font-black text-slate-400 mb-1 sm:mb-2 text-center">,90</span>
               </div>
-              <div className="inline-flex px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold mb-10 uppercase tracking-widest self-center">
-                60% OFF
+              <div className="mb-10 flex justify-center">
+                <div className="inline-flex px-5 py-2 rounded-xl bg-primary/15 border border-primary/30 text-primary text-[11px] font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(67,175,247,0.3)]">
+                  Acesso Vitalício
+                </div>
               </div>
 
               <ul className="flex-grow space-y-4 text-left mb-10">
@@ -110,7 +112,7 @@ export function Pricing() {
               </ul>
 
               <motion.a
-                href="https://pay.hotmart.com/V41346438L?off=as889ckj&bid=1772578247436"
+                href="https://go.perfectpay.com.br/PPU38CQ91OE"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
@@ -121,14 +123,19 @@ export function Pricing() {
               </motion.a>
 
               <div className="flex items-center justify-center gap-4 pt-8 border-t border-white/5 opacity-50">
-                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <Shield className="w-3 h-3" />
                   Garantia 7 dias
                 </div>
                 <div className="w-px h-3 bg-white/10" />
-                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
+                  <Clock className="w-3 h-3" />
+                  Acesso Vitalício
+                </div>
+                <div className="w-px h-3 bg-white/10" />
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
                   <Zap className="w-3 h-3" />
-                  Acesso Imediato
+                  Imediato
                 </div>
               </div>
             </div>
@@ -170,7 +177,7 @@ export function Pricing() {
               </ul>
 
               <motion.a
-                href="https://wa.me/5521967254808?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20JARVIS%20Completo."
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd5UVaM-kDqMsshYh9jPMIGq9dldShajhjU3sFb_tYT0Pbebg/viewform?usp=publish-editor"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
