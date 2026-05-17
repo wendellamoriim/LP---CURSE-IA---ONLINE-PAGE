@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const links = [
   { label: 'Projeto', href: '#about' },
-  { label: 'Módulos', href: '#modules' },
   { label: 'Provas', href: '#testimonials' },
   { label: 'Afiliados', href: '#affiliates' },
   { label: 'FAQ', href: '#faq' },
@@ -25,7 +24,7 @@ export function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 sm:pt-6 px-4"
+      className="fixed top-9 left-0 right-0 z-50 flex justify-center pt-4 sm:pt-6 px-4"
     >
       <div
         className={`flex items-center gap-4 sm:gap-8 px-4 sm:px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'glass-card shadow-[0_8px_32px_rgba(0,0,0,0.4)]' : 'bg-transparent'

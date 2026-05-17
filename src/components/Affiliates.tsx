@@ -5,17 +5,17 @@ const affiliateFeatures = [
   {
     icon: <DollarSign className="w-6 h-6 text-primary" />,
     title: 'Comissões Premium',
-    description: 'Lucratividade acima da média do mercado com um modelo de comissionamento escalável e imediato.',
+    description: 'Lucratividade acima da média com repasses rápidos e comissionamento de alta conversão.',
   },
   {
     icon: <Share2 className="w-6 h-6 text-primary" />,
-    title: 'Ecossistema de Vendas',
-    description: 'Tenha acesso a uma estrutura de conversão de alta performance desenhada para o público de IA.',
+    title: 'Renda Extra Escalável',
+    description: 'Fature promovendo o curso de assistente virtual de inteligência artificial mais desejado do mercado.',
   },
   {
     icon: <Target className="w-6 h-6 text-primary" />,
-    title: 'Renda com IA',
-    description: 'Abocanhe sua fatia do maior mercado do mundo e garanta uma renda extra recorrente todos os meses.',
+    title: 'Prêmios & Bônus de Ranking',
+    description: 'Dispute prêmios físicos, quantias em dinheiro e bônus no ranking mensal dos maiores vendedores da nossa comunidade.',
   },
 ];
 
@@ -93,10 +93,11 @@ export function Affiliates() {
             href="https://wa.me/5521967254808?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20como%20me%20tornar%20um%20afiliado%20oficial%20do%20JARVIS."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-col sm:flex-row items-center gap-4 px-8 sm:px-10 py-5 sm:py-6 rounded-2xl bg-white text-darker font-black text-base sm:text-lg uppercase tracking-wider hover:bg-slate-100 transition-all shadow-[0_10px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_20px_60px_rgba(255,255,255,0.25)] hover:-translate-y-1 group"
+            className="inline-flex flex-col sm:flex-row items-center gap-4 px-8 sm:px-10 py-5 sm:py-6 rounded-2xl bg-gradient-to-r from-primary to-accent text-darker font-black text-base sm:text-lg uppercase tracking-wider hover:opacity-95 hover:shadow-[0_0_40px_rgba(32,211,232,0.4)] transition-all hover:-translate-y-1 group relative overflow-hidden"
           >
-            <MessageCircle className="w-6 h-6 text-[#25D366] group-hover:scale-110 transition-transform" />
-            <span>Falar com Gerente no WhatsApp</span>
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <MessageCircle className="w-6 h-6 text-darker fill-darker group-hover:scale-110 transition-transform relative z-10" />
+            <span className="relative z-10">Falar com Gerente no WhatsApp</span>
           </a>
         </motion.div>
       </div>

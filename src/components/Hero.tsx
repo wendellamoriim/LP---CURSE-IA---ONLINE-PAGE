@@ -61,9 +61,39 @@ function GlitchText({ text, className }: { text: string; className?: string }) {
 
 export function Hero() {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
+  const [videoOpacity, setVideoOpacity] = useState(1);
+
+  const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.currentTarget;
+    if (!video.duration) return;
+
+    const duration = video.duration;
+    const currentTime = video.currentTime;
+
+    const fadeInDuration = 1.0;      // 1.0s de fade-in suave no início
+    const fadeOutStartOffset = 1.6;  // Começa o fade-out 1.6s antes de acabar o vídeo
+    const fadeOutEndOffset = 0.3;    // Fica 100% invisível (preto) 0.3s antes do fim para ocultar o loop seco
+
+    if (currentTime < fadeInDuration) {
+      // Fade-in inicial
+      setVideoOpacity(currentTime / fadeInDuration);
+    } else if (currentTime > duration - fadeOutEndOffset) {
+      // 100% apagado antes do final real para eliminar o pulo de carregamento
+      setVideoOpacity(0);
+    } else if (currentTime > duration - fadeOutStartOffset) {
+      // Rampa suave de fade-out
+      const totalFadeOutTime = fadeOutStartOffset - fadeOutEndOffset;
+      const timeIntoFadeOut = currentTime - (duration - fadeOutStartOffset);
+      const opacity = 1 - (timeIntoFadeOut / totalFadeOutTime);
+      setVideoOpacity(Math.max(0, Math.min(1, opacity)));
+    } else {
+      // Visibilidade total no meio do vídeo
+      setVideoOpacity(1);
+    }
+  };
 
   return (
-    <section className="section-fade section-padding relative min-h-screen flex items-center overflow-hidden bg-darker pt-20">
+    <section className="section-fade relative min-h-screen flex items-center overflow-hidden bg-darker pt-20 pb-8 sm:pb-32">
       {/* Background */}
       <div className="absolute inset-0 grid-bg" />
       <div className="absolute inset-0 hero-glow" />
@@ -132,66 +162,38 @@ export function Hero() {
             </motion.a>
           </div>
 
-          {/* Status Cards */}
+          {/* Developer Credits (Assinatura Minimalista e Profissional) */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 w-full"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex flex-col sm:flex-row items-center gap-y-2 sm:gap-y-0 sm:gap-x-3 w-fit py-3 px-6 sm:py-2.5 sm:px-6 rounded-2xl sm:rounded-full bg-white/[0.02] border border-white/5 text-[11px] text-slate-500 font-semibold tracking-wider uppercase mx-auto lg:mx-0 shadow-sm"
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Card Voice */}
-            <div className="glass-card rounded-2xl px-4 py-3 flex items-center gap-3 text-left border border-white/5 flex-1">
-              <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                <Mic className="w-4 h-4 text-accent" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Entrada de Voz</p>
-                <p className="text-xs font-bold text-white mb-1.5">Realtime Voice</p>
-                <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-accent rounded-full"
-                    animate={{ width: ['15%', '80%', '40%', '65%', '15%'] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Card Neural */}
-            <div className="glass-card rounded-2xl px-4 py-3 flex items-center gap-3 text-left border border-white/5 flex-1">
-              <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Brain className="w-4 h-4 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Neural Core</p>
-                <p className="text-xs font-bold text-white mb-1.5">AI JARVIS</p>
-                <div className="flex items-end gap-0.5 h-4">
-                  {[...Array(10)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="flex-1 bg-primary/40 rounded-full"
-                      animate={{ scaleY: [0.3, 1, 0.4, 0.8, 0.3] }}
-                      transition={{ duration: 1.4, repeat: Infinity, delay: i * 0.08, ease: 'easeInOut' }}
-                      style={{ minHeight: 3, transformOrigin: 'bottom' }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Card Latência */}
-            <div className="glass-card rounded-2xl px-4 py-3 flex items-center gap-3 text-left border border-white/5 flex-1 md:hidden lg:flex">
-              <div className="w-9 h-9 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                <Zap className="w-4 h-4 text-green-400" />
-              </div>
-              <div>
-                <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Latência</p>
-                <p className="text-xs font-bold text-white mb-0.5">Online · 12ms</p>
-                <div className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-[9px] text-green-400 font-semibold">Tempo real</span>
-                </div>
-              </div>
+            <span>Desenvolvido por:</span>
+            <div className="flex flex-col sm:flex-row items-center gap-y-2 sm:gap-y-0 sm:gap-3">
+              <a
+                href="https://www.tiktok.com/@pedroaraujos3?_r=1&_t=ZS-96RpUKkbkwO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-cyan-400 font-black lowercase tracking-normal hover:text-cyan-350 transition-colors duration-350 whitespace-nowrap"
+              >
+                <svg className="w-3.5 h-3.5 fill-current mr-1 text-white/90" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.05-1.5-.71-.54-1.29-1.25-1.68-2.07-.02 3.51-.01 7.02-.02 10.53-.13 1.94-.85 3.86-2.18 5.28-1.57 1.71-3.92 2.65-6.24 2.67-2.6.08-5.22-1.01-6.88-3.05-1.74-2.1-2.22-5.07-1.32-7.64C1.19 11.23 3.32 9.07 6 8.35v4.24c-1.12.33-2.12 1.09-2.65 2.12-.66 1.25-.56 2.87.27 3.99.9 1.21 2.44 1.84 3.93 1.63 1.48-.17 2.8-1.27 3.19-2.73.11-.53.15-1.07.15-1.61V.02h1.64z" />
+                </svg>
+                @pedroaraujos3 <span className="text-[10px] text-slate-400 font-medium uppercase ml-1">(PEDROSA)</span>
+              </a>
+              <span className="hidden sm:inline text-white/20">•</span>
+              <a
+                href="https://www.tiktok.com/@wendellamoriim?_r=1&_t=ZS-96RpW7RcO2O"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-primary font-black lowercase tracking-normal hover:text-blue-400 transition-colors duration-350 whitespace-nowrap"
+              >
+                <svg className="w-3.5 h-3.5 fill-current mr-1 text-white/90" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.05-1.5-.71-.54-1.29-1.25-1.68-2.07-.02 3.51-.01 7.02-.02 10.53-.13 1.94-.85 3.86-2.18 5.28-1.57 1.71-3.92 2.65-6.24 2.67-2.6.08-5.22-1.01-6.88-3.05-1.74-2.1-2.22-5.07-1.32-7.64C1.19 11.23 3.32 9.07 6 8.35v4.24c-1.12.33-2.12 1.09-2.65 2.12-.66 1.25-.56 2.87.27 3.99.9 1.21 2.44 1.84 3.93 1.63 1.48-.17 2.8-1.27 3.19-2.73.11-.53.15-1.07.15-1.61V.02h1.64z" />
+                </svg>
+                @w..corporation <span className="text-[10px] text-slate-400 font-medium uppercase ml-1">(Wendell Amorim)</span>
+              </a>
             </div>
           </motion.div>
 
@@ -204,7 +206,7 @@ export function Hero() {
           >
             {[
               { value: '18+', label: 'Aulas Práticas' },
-              { value: '<30ms', label: 'Latência' },
+              { value: 'Zero', label: 'Mensalidade e Custos de API' },
               { value: '100%', label: 'Acesso Vitalício' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -215,14 +217,15 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* ── COLUNA DIREITA — GIF Iron Man ── */}
+        {/* ── COLUNA DIREITA — Vídeo do Iron Man (antigo GIF) ── */}
         <motion.div
-          className="flex-shrink-0 flex items-center justify-center relative lg:translate-y-[-12%]"
-          initial={{ opacity: 0, y: 40 }}
+          className="flex-shrink-0 flex items-center justify-center relative lg:translate-y-[2%] -mt-4 sm:mt-0 -mb-20 sm:mb-0"
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{
             opacity: isGifLoaded ? 1 : 0,
             y: isGifLoaded ? 0 : 40,
-            x: isGifLoaded ? 0 : 40
+            x: isGifLoaded ? 0 : 40,
+            scale: isGifLoaded ? 1.18 : 0.95
           }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           style={{
@@ -232,18 +235,23 @@ export function Hero() {
             pointerEvents: 'none'
           }}
         >
-          <img
-            src="/ApiG.gif"
-            alt=""
-            aria-hidden="true"
-            onLoad={() => {
-              setTimeout(() => setIsGifLoaded(true), 1000);
+          <video
+            src="/Azul_1.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            onLoadedData={() => {
+              setTimeout(() => setIsGifLoaded(true), 500);
             }}
+            onTimeUpdate={handleTimeUpdate}
             style={{
               width: '100%',
               height: 'auto',
               display: 'block',
-              backgroundColor: 'transparent'
+              backgroundColor: 'transparent',
+              opacity: videoOpacity,
+              transition: 'opacity 0.3s ease-out'
             }}
           />
         </motion.div>

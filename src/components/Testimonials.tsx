@@ -106,10 +106,11 @@ export function Testimonials() {
               {/* Video Preview Container */}
               <div className="relative aspect-video rounded-xl overflow-hidden bg-black/40 mb-4 group-hover:ring-2 ring-primary/50 transition-all">
                 <video
-                  src={testimonial.video}
+                  src={`${testimonial.video}#t=0.001`}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                   muted
                   playsInline
+                  preload="metadata"
                   onMouseOver={(e) => e.currentTarget.play()}
                   onMouseOut={(e) => {
                     e.currentTarget.pause();

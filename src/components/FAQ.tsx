@@ -4,32 +4,32 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'Preciso ter experiência prévia com IA ou programação?',
-    answer: 'Não! O curso foi criado para ser acessível do zero. Mesmo sem experiência com programação ou IA, você vai conseguir acompanhar. Todo o ambiente é configurado passo a passo.',
+    question: 'Preciso ter experiência prévia com programação?',
+    answer: 'Não! O curso foi desenvolvido pensando em quem está começando do absoluto zero. Você não precisa ter nenhuma experiência prévia em programação para construir e rodar o seu próprio JARVIS.',
   },
   {
-    question: 'Quais são os requisitos de hardware?',
-    answer: 'Apenas um computador e acesso à internet. Para recursos de visão computacional e voz em tempo real, você vai precisar de webcam e microfone — itens que a maioria dos notebooks já possui.',
+    question: 'Quais são os requisitos mínimos do meu computador?',
+    answer: 'Você precisa apenas de um computador Desktop ou Notebook com pelo menos 8GB de RAM, webcam, microfone e conexão com a internet. O assistente é compatível com Windows, macOS e Linux.',
   },
   {
-    question: 'O curso gera custos com APIs externas?',
-    answer: 'Não! Todas as ferramentas utilizadas possuem planos gratuitos extremamente generosos. Ensinamos a configurar tudo para que você não tenha custo adicional com APIs.',
+    question: 'Terei custos adicionais com APIs ou mensalidades?',
+    answer: 'Não! O seu acesso é vitalício, sem nenhuma mensalidade e o desenvolvimento é ensinado utilizando ferramentas com generosos planos gratuitos, garantindo custo zero adicional com APIs.',
   },
   {
-    question: 'Por quanto tempo terei acesso?',
-    answer: 'O acesso ao conteúdo desta versão é vitalício — assista quantas vezes quiser. Atualizações futuras e módulos avançados serão lançados separadamente como pacotes adicionais.',
+    question: 'Consigo usar o assistente no celular (Mobile)?',
+    answer: 'Sim! Ele funciona via mobile através de localhost. Para isso, basta deixar o "cérebro" do Jarvis rodando no seu computador pessoal (na mesma rede) ou em um servidor em nuvem (VPS).',
   },
   {
-    question: 'O assistente funciona em português (PT-BR)?',
-    answer: 'Sim! A tecnologia suporta múltiplos idiomas incluindo português brasileiro, com reconhecimento e síntese de voz nativos.',
+    question: 'Quanto tempo leva para construir o JARVIS?',
+    answer: 'Nossas vídeoaulas práticas foram planejadas milimetricamente para que você consiga construir e ver o seu próprio assistente rodando em média 45 minutos!',
   },
   {
-    question: 'E se eu não gostar? Tem garantia?',
-    answer: 'Sim! Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do investimento, sem perguntas.',
+    question: 'Terei direito a atualizações e descontos?',
+    answer: 'Sim! O acesso inclui atualizações vitalícias sem custos. Além disso, como aluno oficial, você terá descontos exclusivos de lançamento em SKILLS específicas e avançadas para o seu assistente.',
   },
   {
-    question: 'Tem suporte para tirar dúvidas?',
-    answer: 'Sim! Você terá acesso à comunidade exclusiva no Discord com suporte do instrutor e outros alunos. Sessões de Q&A ao vivo são realizadas periodicamente.',
+    question: 'Como funciona o suporte e a comunidade?',
+    answer: 'Você terá acesso à nossa comunidade exclusiva de alunos no Discord. Lá você poderá tirar dúvidas diretamente com o suporte técnico, trocar ideias, fazer networking e fechar parcerias de negócios.',
   },
 ];
 

@@ -1,23 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Clock, Shield, Zap } from 'lucide-react';
+import { Check, Clock, Shield } from 'lucide-react';
 
 const courseFeatures = [
-  'Acesso Completo às Aulas',
-  'Aprenda a Construir do Zero',
-  'Código-Fonte p/ Estudo',
-  'Comunidade VIP no Discord',
-  'Suporte Técnico p/ Alunos',
-  'Atualizações Vitalícias',
-];
-
-const jarvisFeatures = [
-  'Sistema JARVIS Pronto p/ Uso',
-  'Instalação Plug & Play',
-  'Arquitetura Final Desbloqueada',
-  'Sem Necessidade de Programar',
-  'Entrega Imediata dos Arquivos',
-  'Ideal para Quem Tem Pressa',
+  'Acesso Vitalício & Sem Mensalidades',
+  'Sem custo adicional com APIs',
+  'Construa em média 45min (Aulas Diretas)',
+  'Não exige experiência prévia em programação',
+  'Comunidade exclusiva no Discord (Suporte & Parcerias)',
+  'Atualizações Vitalícias gratuitas inclusas',
+  'Descontos em SKILLS exclusivas de lançamentos',
+  'Renda extra como afiliado + bônus de ranking',
 ];
 
 export function Pricing() {
@@ -62,22 +55,22 @@ export function Pricing() {
           </div>
 
           <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-4">
-            Escolha seu <span className="gradient-text">Nível</span>
+            Garanta seu <span className="gradient-text">Acesso</span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg">
-            Aprenda a construir ou leve o sistema completo pronto.
+            Aprenda a construir o seu próprio assistente de IA do zero.
           </p>
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+        <div className="max-w-xl mx-auto flex justify-center w-full">
           {/* Card 1: Curso (COM ILUMINAÇÃO) */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="flex flex-col h-full relative group"
+            className="w-full flex flex-col h-full relative group"
           >
             {/* Super Glow on hover */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary to-accent opacity-20 group-hover:opacity-100 blur-xl transition duration-500" />
@@ -134,66 +127,14 @@ export function Pricing() {
                 </div>
                 <div className="hidden sm:block w-px h-3 bg-white/10" />
                 <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap">
-                  <Zap className="w-3 h-3" />
+                  <Check className="w-3 h-3" />
                   Imediato
                 </div>
               </div>
             </div>
           </motion.div>
-
-          {/* Card 2: JARVIS Completo (COLORIDO) */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col h-full"
-          >
-            <div className="relative glass-card rounded-3xl p-6 sm:p-12 border border-primary/20 flex flex-col h-full bg-darker/60 backdrop-blur-xl hover:scale-[1.01] transition-transform duration-500">
-              <div className="inline-flex px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-8 self-center">
-                Solução Instantânea
-              </div>
-              <div className="mb-2 text-center text-slate-500 line-through text-xs sm:text-sm">
-                R$ 5.000,00
-              </div>
-              <div className="flex items-end justify-center gap-1 mb-2">
-                <span className="text-xl sm:text-2xl font-bold text-slate-400 mb-2 sm:mb-3">R$</span>
-                <span className="text-6xl sm:text-8xl font-black text-white leading-none tracking-tighter">2.499</span>
-                <span className="text-2xl sm:text-3xl font-black text-slate-400 mb-1 sm:mb-2 text-center">,90</span>
-              </div>
-              <div className="inline-flex px-3 py-1 rounded-lg bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold mb-10 uppercase tracking-widest self-center text-center">
-                OPÇÃO PREMIUM
-              </div>
-
-              <ul className="flex-grow space-y-4 text-left mb-10">
-                {jarvisFeatures.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-sm text-slate-100">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20">
-                      <Zap className="w-3 h-3 text-primary fill-primary" />
-                    </div>
-                    <span className="font-medium">{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <motion.a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSd5UVaM-kDqMsshYh9jPMIGq9dldShajhjU3sFb_tYT0Pbebg/viewform?usp=publish-editor"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                className="block w-full py-5 rounded-2xl bg-primary text-white font-black text-base sm:text-lg text-center shadow-[0_10px_40_rgba(67,175,247,0.3)] hover:shadow-[0_20px_60px_rgba(67,175,247,0.5)] transition-all mb-8 uppercase"
-              >
-                FALE CONOSCO
-              </motion.a>
-
-              <div className="flex items-center justify-center gap-2 pt-8 border-t border-white/10 opacity-50">
-                <Zap className="w-4 h-4 text-primary" />
-                <span className="text-[10px] font-bold text-slate-200 uppercase tracking-widest">Entrega via Download</span>
-              </div>
-            </div>
-          </motion.div>
         </div>
+
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mic, Cpu, Wifi, Zap, MessageSquare, Globe } from 'lucide-react';
+import { Mic, Cpu, Laptop, Zap, MessageSquare, Globe, Smartphone, Code, Layout } from 'lucide-react';
 
 const features = [
   {
@@ -17,16 +17,16 @@ const features = [
     bg: 'bg-primary/10',
   },
   {
-    icon: Wifi,
-    title: 'Comunicação Bidirecional',
-    description: 'Comunicação em tempo real com infraestrutura de nível profissional e baixíssima latência.',
+    icon: Laptop,
+    title: 'PC Desktop & Notebook',
+    description: 'Rode seu JARVIS em qualquer computador de mesa (PC Desktop) ou Notebook. Totalmente compatível com Windows, macOS e Linux.',
     accent: 'text-green-400',
     bg: 'bg-green-500/10',
   },
   {
-    icon: Zap,
-    title: 'Respostas em <30ms',
-    description: 'Streaming de áudio e texto com respostas que começam antes mesmo de você terminar de falar.',
+    icon: Code,
+    title: 'Código Fonte Liberado',
+    description: 'Acesso completo ao código-fonte do JARVIS sem restrições. Personalize 100%, crie novas skills e modifique o assistente como quiser.',
     accent: 'text-yellow-400',
     bg: 'bg-yellow-500/10',
   },
@@ -38,9 +38,9 @@ const features = [
     bg: 'bg-pink-500/10',
   },
   {
-    icon: Globe,
-    title: 'Deploy na Nuvem',
-    description: 'Leve seu assistente para a internet. Aprenda a publicar e escalar na cloud.',
+    icon: Layout,
+    title: 'Layouts Futuristas',
+    description: 'Construa interfaces incríveis de ficção científica com reatividade em tempo real e design cyberpunk premium.',
     accent: 'text-accent',
     bg: 'bg-accent/10',
   },
@@ -48,7 +48,7 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="section-fade section-padding relative bg-darker overflow-hidden">
+    <section id="about" className="section-fade relative bg-darker overflow-hidden pt-8 pb-20 sm:py-32">
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[800px] h-[300px] sm:h-[400px] rounded-full opacity-10 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #43aff7 0%, transparent 70%)' }}
@@ -96,6 +96,86 @@ export function About() {
             </motion.div>
           ))}
         </div>
+
+        {/* ── SEÇÃO ADICIONAL: Especificações & Ficha Técnica ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="mt-20 border-t border-white/5 pt-16"
+        >
+          <div className="text-center mb-16 sm:mb-20">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+              Especificações & <span className="gradient-text">Ficha Técnica</span>
+            </h3>
+            <p className="text-base sm:text-lg text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Saiba exatamente o que é necessário para construir e rodar o ecossistema do seu assistente JARVIS.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {/* Card 1: Requisitos de Hardware (Destaque Premium - Cyan) */}
+            <div className="glass-card rounded-2xl p-8 sm:p-9 min-h-[320px] border border-cyan-500/30 text-left flex flex-col justify-between hover:border-cyan-500/50 transition-all duration-300 group relative overflow-hidden md:scale-[1.04] shadow-[0_4px_30px_rgba(6,182,212,0.12)] z-10">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-500 to-cyan-300" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform duration-300">
+                    <Cpu className="w-6 h-6" />
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-cyan-500/20 border border-cyan-500/30 text-[9px] font-black uppercase tracking-widest text-cyan-400">
+                    Hardware
+                  </span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3">Requisitos Mínimos</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  Basta ter um PC Desktop ou Notebook com pelo menos <strong className="text-slate-200">8GB de RAM</strong>. Compatível com Windows, macOS e Linux para desenvolvimento local estável.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Mobile & VPS (Destaque Premium - Blue/Primary) */}
+            <div className="glass-card rounded-2xl p-8 sm:p-9 min-h-[320px] border border-primary/30 text-left flex flex-col justify-between hover:border-primary/50 transition-all duration-300 group relative overflow-hidden md:scale-[1.04] shadow-[0_4px_30px_rgba(67,175,247,0.12)] z-10">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-accent" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                    <Smartphone className="w-6 h-6" />
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-primary/20 border border-primary/30 text-[9px] font-black uppercase tracking-widest text-primary">
+                    Mobile & Cloud
+                  </span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3">Funcionamento Mobile</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  O assistente funciona no celular via <strong className="text-slate-200">localhost</strong>. É necessário rodar o "cérebro" do Jarvis em segundo plano no seu próprio PC de casa ou em uma VPS (servidor na nuvem).
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: Nível de Programação (Destaque Premium - Emerald) */}
+            <div className="glass-card rounded-2xl p-8 sm:p-9 min-h-[320px] border border-emerald-500/30 text-left flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300 group relative overflow-hidden md:scale-[1.04] shadow-[0_4px_30px_rgba(16,185,129,0.12)] z-10">
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500 to-emerald-300" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+                    <Code className="w-6 h-6" />
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-500/30 text-[9px] font-black uppercase tracking-widest text-emerald-400">
+                    100% Acessível
+                  </span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3">Zero Barreira de Código</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  <strong className="text-slate-200">Não precisa ter experiência prévia</strong> com programação ou IA. As videoaulas dinâmicas foram feitas para você subir o Jarvis completo do zero em média <strong className="text-slate-200">45 minutos</strong>!
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
