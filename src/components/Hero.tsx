@@ -61,7 +61,6 @@ function GlitchText({ text, className }: { text: string; className?: string }) {
 
 export function Hero() {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
-  const [videoOpacity, setVideoOpacity] = useState(1);
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.currentTarget;
@@ -74,22 +73,24 @@ export function Hero() {
     const fadeOutStartOffset = 1.6;  // Começa o fade-out 1.6s antes de acabar o vídeo
     const fadeOutEndOffset = 0.3;    // Fica 100% invisível (preto) 0.3s antes do fim para ocultar o loop seco
 
+    let opacity = 1;
+
     if (currentTime < fadeInDuration) {
       // Fade-in inicial
-      setVideoOpacity(currentTime / fadeInDuration);
+      opacity = currentTime / fadeInDuration;
     } else if (currentTime > duration - fadeOutEndOffset) {
       // 100% apagado antes do final real para eliminar o pulo de carregamento
-      setVideoOpacity(0);
+      opacity = 0;
     } else if (currentTime > duration - fadeOutStartOffset) {
       // Rampa suave de fade-out
       const totalFadeOutTime = fadeOutStartOffset - fadeOutEndOffset;
       const timeIntoFadeOut = currentTime - (duration - fadeOutStartOffset);
-      const opacity = 1 - (timeIntoFadeOut / totalFadeOutTime);
-      setVideoOpacity(Math.max(0, Math.min(1, opacity)));
-    } else {
-      // Visibilidade total no meio do vídeo
-      setVideoOpacity(1);
+      const calculatedOpacity = 1 - (timeIntoFadeOut / totalFadeOutTime);
+      opacity = Math.max(0, Math.min(1, calculatedOpacity));
     }
+
+    // Aplica a opacidade diretamente no elemento HTML para performance máxima sem re-render do React!
+    video.style.opacity = opacity.toString();
   };
 
   return (
@@ -241,8 +242,9 @@ export function Hero() {
             loop
             muted
             playsInline
+            preload="auto"
             onLoadedData={() => {
-              setTimeout(() => setIsGifLoaded(true), 500);
+              setTimeout(() => setIsGifLoaded(true), 200); // 200ms de atraso é mais ágil no mobile
             }}
             onTimeUpdate={handleTimeUpdate}
             style={{
@@ -250,8 +252,8 @@ export function Hero() {
               height: 'auto',
               display: 'block',
               backgroundColor: 'transparent',
-              opacity: videoOpacity,
-              transition: 'opacity 0.3s ease-out'
+              opacity: 0, // Inicia invisível e o handleTimeUpdate faz o fade-in nativo de alta performance
+              transition: 'opacity 0.15s ease-out'
             }}
           />
         </motion.div>
