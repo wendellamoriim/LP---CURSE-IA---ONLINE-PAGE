@@ -243,8 +243,8 @@ export function Hero() {
             muted
             playsInline
             preload="auto"
-            onLoadedData={() => {
-              setTimeout(() => setIsGifLoaded(true), 200); // 200ms de atraso é mais ágil no mobile
+            onLoadedMetadata={() => {
+              setIsGifLoaded(true);
             }}
             onTimeUpdate={handleTimeUpdate}
             style={{
@@ -252,7 +252,7 @@ export function Hero() {
               height: 'auto',
               display: 'block',
               backgroundColor: 'transparent',
-              opacity: 0, // Inicia invisível e o handleTimeUpdate faz o fade-in nativo de alta performance
+              opacity: 1, // Inicializa visível para evitar qualquer atraso no carregamento visual
               transition: 'opacity 0.15s ease-out'
             }}
           />
