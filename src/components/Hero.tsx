@@ -185,7 +185,7 @@ export function Hero() {
               </a>
               <span className="hidden sm:inline text-white/20">•</span>
               <a
-                href="https://www.tiktok.com/@wendellamoriim?_r=1&_t=ZS-96RpW7RcO2O"
+                href="https://www.tiktok.com/@w..corporation?lang=pt-BR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-primary font-black lowercase tracking-normal hover:text-blue-400 transition-colors duration-350 whitespace-nowrap"
