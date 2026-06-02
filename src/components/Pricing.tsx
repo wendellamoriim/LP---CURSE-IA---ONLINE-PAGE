@@ -80,12 +80,12 @@ export function Pricing() {
                 Curso Completo
               </div>
               <div className="mb-2 text-center text-slate-500 line-through text-xs sm:text-sm">
-                R$ 297,00
+                R$ 397,00
               </div>
               <div className="flex items-end justify-center gap-1 mb-2">
                 <span className="text-xl sm:text-2xl font-bold text-slate-400 mb-2 sm:mb-3">R$</span>
-                <span className="text-6xl sm:text-8xl font-black text-white leading-none tracking-tighter">119</span>
-                <span className="text-2xl sm:text-3xl font-black text-slate-400 mb-1 sm:mb-2 text-center">,90</span>
+                <span className="text-6xl sm:text-8xl font-black text-white leading-none tracking-tighter">220</span>
+                <span className="text-2xl sm:text-3xl font-black text-slate-400 mb-1 sm:mb-2 text-center">,00</span>
               </div>
               <div className="mb-10 flex justify-center">
                 <div className="inline-flex px-5 py-2 rounded-xl bg-primary/15 border border-primary/30 text-primary text-[11px] font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(67,175,247,0.3)]">
