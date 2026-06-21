@@ -110,6 +110,21 @@ export function Pricing() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).ttq) {
+                    (window as any).ttq.track('InitiateCheckout', {
+                      contents: [{
+                        content_id: 'curso_jarvis',
+                        content_name: 'Curso JARVIS AI',
+                        price: 220.00,
+                        value: 220.00,
+                        currency: 'BRL'
+                      }],
+                      value: 220.00,
+                      currency: 'BRL'
+                    });
+                  }
+                }}
                 className="block w-full py-5 rounded-2xl bg-white text-darker font-black text-base sm:text-lg text-center shadow-[0_10px_40_rgba(255,255,255,0.15)] hover:shadow-[0_20px_60px_rgba(255,255,255,0.25)] transition-all mb-8"
               >
                 Garantir o Curso
