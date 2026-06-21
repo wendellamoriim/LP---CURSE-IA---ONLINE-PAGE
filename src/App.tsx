@@ -18,8 +18,14 @@ export function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setRoute(window.location.hash);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const currentHash = window.location.hash;
+      setRoute(currentHash);
+      
+      // Rola para o topo apenas se mudar para páginas virtuais (como #/terms ou #/privacy)
+      // Evita rolar para o topo quando clicamos em âncoras da mesma página (como #cta, #demo)
+      if (!currentHash || currentHash === '#' || currentHash.startsWith('#/')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
