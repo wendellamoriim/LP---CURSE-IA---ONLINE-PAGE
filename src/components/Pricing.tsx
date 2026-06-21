@@ -111,6 +111,9 @@ export function Pricing() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => {
+                  const eventId = 'initiate_checkout_' + Math.random().toString(36).substring(2, 9) + '_' + Date.now();
+
+                  // 1. Rastreamento Client-Side (Browser)
                   if (typeof window !== 'undefined' && (window as any).ttq) {
                     (window as any).ttq.track('InitiateCheckout', {
                       contents: [{
@@ -121,9 +124,36 @@ export function Pricing() {
                         currency: 'BRL'
                       }],
                       value: 220.00,
-                      currency: 'BRL'
+                      currency: 'BRL',
+                      event_id: eventId
                     });
                   }
+
+                  // 2. Rastreamento Server-Side (Events API)
+                  const urlParams = new URLSearchParams(window.location.search);
+                  const ttclid = urlParams.get('ttclid') || '';
+
+                  fetch('/api/tiktok-event', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      event_name: 'InitiateCheckout',
+                      event_id: eventId,
+                      value: 220.00,
+                      currency: 'BRL',
+                      user_data: {
+                        ttclid: ttclid
+                      },
+                      contents: [{
+                        content_id: 'curso_jarvis',
+                        content_name: 'Curso JARVIS AI',
+                        price: 220.00,
+                        quantity: 1
+                      }]
+                    })
+                  }).catch(err => console.error('Error sending TikTok server event:', err));
                 }}
                 className="block w-full py-5 rounded-2xl bg-white text-darker font-black text-base sm:text-lg text-center shadow-[0_10px_40_rgba(255,255,255,0.15)] hover:shadow-[0_20px_60px_rgba(255,255,255,0.25)] transition-all mb-8"
               >
